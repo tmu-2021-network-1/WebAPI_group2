@@ -1,108 +1,85 @@
-const uri = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=';
-// const id = 'sunflower';
-// const objectID = 436524
-// const sheet = 'Studio';
-// const endpoint = `${uri}${id}`;
+const apiUri = 'https://collectionapi.metmuseum.org/public/collection/v1';
+const objectsUri = `${apiUri}/objects`;
+const searchUri = `${apiUri}/search`;
 
-const uri2 = 'https://collectionapi.metmuseum.org/public/collection/v1/objects';
+const search = async ({artistOrCulture = false} = {}) => {
+  const keywordInput = document.getElementById('keyword');
+  const keyword = keywordInput.value;
+  const uri = `${searchUri}?hasImages=true&q=${encodeURIComponent(keyword)}&artistOrCulture=${artistOrCulture}`;
+  console.log(uri);
+  const json = await getData(uri);
+  console.log(json);
+  document.getElementById('count').textContent = `${json['total']}件見つかりました`;
 
-const showMessage = () => {
-    const textbox = document.getElementById("input-message");
-    // console.log("tes");
-    // console.log(textbox);
-    const inputValue = textbox.value;
-    getData(inputValue);
+  const ids = json['objectIDs'];
 
+  const list = document.getElementById('objects');
+  list.innerHTML = ''; // remove all children
+  for (let id of ids) {
+    const item = document.createElement('li');
+    item.className = 'object';
+    item.innerHTML = `<div class="id">${id}</div>
+    <div><strong class="title"></strong></div>
+    <div><a href="#" class="artist"></a></div>
+    <div class="date"></div>
+    <a href="#" class="image-link" target="_blank"><img alt="" src="images/loading.gif" class="thumbnail">`;
+    // const img = document.createElement('img');
+    // img.src = `images/loading.gif`;
+    // img.className = 'thumbnail';
+    // item.appendChild(img);
+    list.appendChild(item);
+  }
 
-    // //テキストボックスの値を使って、出力するメッセージを生成する
-    // const output = "入力された内容は「" + inputValue + "」です。";
-    // //出力用のp要素にメッセージを表示
-    // document.getElementById("output-message").innerHTML = output;
+  let i = 0;
+  for (let id of ids) {
+    const objectUri = `${objectsUri}/${id}`;
+    const objectJson = await getData(objectUri);
+    console.log(objectJson);
+
+    document.querySelectorAll(`.object .id`)[i].textContent = '';
+    document.querySelectorAll(`.object .title`)[i].textContent = objectJson['title'].substr(0, 20);
+    const artist = document.querySelectorAll(`.object .artist`)[i];
+    artist.textContent = objectJson['artistDisplayName'].substr(0, 20);
+    artist.onclick = () => {
+      document.getElementById('keyword').value = objectJson['artistDisplayName'];
+      search();
+      // search({artistOrCulture: true});
+    };
+    document.querySelectorAll(`.object .date`)[i].textContent = objectJson['objectDate'];
+    const a = document.querySelectorAll(`.object .image-link`)[i];
+    a.href = objectJson['primaryImage'];
+    const img = document.querySelectorAll(`.object img`)[i];
+    // const img = document.createElement('img');
+    img.src = objectJson['primaryImageSmall'];
+    // img.className = 'thumbnail';
+    // item.appendChild(img);
+    i++;
+  }
+
+  // renderJson(objectJson);
+  return false;
 }
 
+const getData = async (uri) => {
+  try {
+    console.log(uri);
+    const response = await fetch(uri);
+    console.log(response);
+    if (response.ok) {
+      const jsonResponse = await response.json();
+			// renderJson(jsonResponse);
+      return jsonResponse;
+    }
+  }
+  catch (error) {
+    console.log(error);
+    return error;
+  }
+  return {};
+}
 
 const renderJson = (json) => {
-    const studios = json;
-    // console.log(studios);
-
-    // studios.forEach(studio => {
-    const studioDiv = document.createElement('div');
-    const studioTitle = document.createElement("p");
-    studioTitle.className = 'studio-title';
-    studioTitle.textContent = studios['title'];
-
-    const studioTitlePhoto = document.createElement("img");
-    studioTitlePhoto.width = 100;
-    studioTitlePhoto.className = 'studio-photo';
-    studioTitlePhoto.src = studios['primaryImage'];
-    studioDiv.appendChild(studioTitle);
-    studioDiv.appendChild(studioTitlePhoto);
-    document.getElementById('Top').appendChild(studioDiv);
-    
+  const div = document.createElement('div');
+  div.textContent = JSON.stringify(json, "", 2);
+  document.getElementById('result').appendChild(div);
 }
-
-const getData = async (keyword) => {
-    try {
-        const endpoint = `${uri}${keyword}`;
-        const response = await fetch(endpoint);
-        if (response.ok) {
-            const jsonResponse = await response.json();
-            console.log(jsonResponse.objectIDs);
-            jsonResponse.objectIDs.forEach(ID => {
-                console.log(`ID : ${ID}`);
-                getData2(ID);
-            });
-            // renderJson(jsonResponse.objectIDs);
-            // console.log("HELLO");
-        }
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-
-const getData2 = async (objectID) => {
-    try {
-        const endpoint2 = `${uri2}/${objectID}`;
-        console.log(`endpoint2 =  ${endpoint2}`)
-        const response2 = await fetch(endpoint2);
-        console.log(response2)
-        if (response2.ok) {
-            const jsonResponse2 = await response2.json();
-            // console.log(jsonResponse);
-            renderJson(jsonResponse2);
-            console.log("HELLO");
-        }
-    }
-    catch (error) {
-        console.log("BAD");
-        console.log(error);
-    }
-}
-
-// getData();
-
-
-const load_func = function () {
-    console.log(document);
-    const textarea = document.getElementById("input-message");
-    console.log(textarea);
-    textarea.addEventListener("keydown", function (e) {
-        if (e.code === 'Enter') {
-            // console.log('nisituzi')
-            showMessage();
-        }
-    })
-
-
-    const button = document.getElementById("push");
-    button.addEventListener("click", function (e) {
-        showMessage();
-    })
-}
-
-console.log(document);
-
-window.addEventListener('load', function () {
-    load_func()
-})
