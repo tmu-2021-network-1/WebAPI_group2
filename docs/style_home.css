@@ -1,0 +1,54 @@
+body {
+	font-family:'Constantia', 'MS PMincho', sans-serif;
+	background-color: #F5E5C9;
+  }
+  #offer {
+	font-family: 'Constantia', 'MS PMincho', sans-serif;
+	clear: both;
+	background-color:#222327;
+	color: #F5E5C9;
+	padding-top: 5px;
+	padding-bottom: 90px;
+	position: absolute;            /* ヘッダーの固定 */
+	top: 0px;                   /* 位置(上0px) */
+	left: 0px;                  /* 位置(右0px) */
+	width: 100%;                /* 横幅100%　*/
+	height: 100px;
+	text-align:center;
+	border-bottom:2px solid #F5E5C9;
+  }
+
+  #offer img{
+	  position:absolute;
+	  width:20px;
+	  height:auto;
+	  left:1400px;
+	  margin-top:10px;
+  }
+
+  h1{
+	  font-size:38px;
+	  letter-spacing:0.05em;
+  }
+
+  p{
+	  margin-top:-25px;
+	  font-size:20px;
+  }
+
+  .line {
+	border-width: 2px 0 0 0;
+	border-style: solid;
+	border-color: #F5E5C9;
+}
+
+ul{
+	overflow:hidden;
+	list-style:none;
+}
+
+li{
+	display: inline-block;
+	font-size:14px;
+	padding:0px 30px;
+}
