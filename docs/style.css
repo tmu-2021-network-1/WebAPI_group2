@@ -1,5 +1,6 @@
 body {
 	font-family:'Constantia', 'MS PMincho', sans-serif;
+	background-color: #F5E5C9;
   }
   #offer {
 	font-family: 'Constantia', 'MS PMincho', sans-serif;
@@ -74,12 +75,12 @@ li{
   .object {
 	/* box-sizing: border-box; */
 	display: inline-block;
-	background-color: #eee;
+	background-color: rgb(255, 255, 255);
 	text-align: center;
 	margin: 20px;
-	padding: 20px;
-	width: 600px;
-	height: 600px;
+	padding: 10px;
+	width: 470px;
+	height: 470px;
 	min-height: 180px;
 	border-radius: .5em;
 	overflow: scroll;
@@ -88,4 +89,21 @@ li{
   .thumbnail {
 	max-width: 500px;
 	max-height: 500px;
+  }
+
+  footer{
+	  position:fixed;
+	  top:780px;
+	  width:100%;
+	  padding:10px;
+	  margin:0px;
+	  background-color: #222327;
+	  color:#F5E5C9;
+	  text-align:center;
+  }
+
+  footer li{
+	border: 2px solid #F5E5C9;
+	padding: 3px 10px;
+	margin:0px 60px;
   }
