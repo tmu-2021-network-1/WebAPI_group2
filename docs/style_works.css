@@ -105,3 +105,16 @@ body {
     text-align: center;
     color: #F5E5C9;
 }
+
+/* loading */
+#container{display:none;}
+#loading{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom: 0;
+	margin:auto;
+	width:100%;/*任意の値*/
+	height: 100%;/*任意の値*/
+}

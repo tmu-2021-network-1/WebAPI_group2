@@ -116,3 +116,16 @@ body {
 	max-width: 300px;
 	max-height: 300px;
   }
+
+  /* loading */
+#container{display:none;}
+#loading{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom: 0;
+	margin:auto;
+	width:100%;
+	height: 100%;
+}
