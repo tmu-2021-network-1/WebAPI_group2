@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style_search.css">
+    <script src="script.js"></script>
+    <title>network_group2</title>
+  </head>
+  <body>
+    <section id="offer">
+        <h1>The Metropolitan Museum Of Art</h1>
+        <p>~ Welcome To The Museum Tour ~</p> 
+        <div id="Search">
+            <input id="keyword" type="text">
+            <button id="search" onclick="search();"><img src="./kadai1_image/検索アイコン1.png" alt="検索"></button>
+        </div>
+        
+      <hr class="line"/>
+      <div id="menu">
+        <li><a href="HOME.html">HOME</a>
+        <li><a href="about.html">ABOUT</a>
+        <li><a href="works.html">TOUR</a>
+        <li><a href="search.html">SEARCH</a>
+      </div>
+    </section>
+
+    
+    <div id="count"></div>
+    <div id="objects-container">
+      <ul id="objects"></ul>
+      <div id="footline">
+        <p>＜＜＜side scroll＞＞＞</p>
+      </div>
+    </div>
+    <pre id="result"></pre>
+  </body>  
+</html>
