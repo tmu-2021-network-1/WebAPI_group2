@@ -81,8 +81,9 @@ li{
 .about{
     position:absolute;
     top:750px;
+    left:0px;
     width:100%;
-    height:500px;
+    height:400px;
     color:#222327;
 }
 
@@ -94,27 +95,44 @@ h2{
 
 .flex{
     display: flex;
-    padding: 10px;
-    justify-content:space-around;
+    justify-content: center;
 }
 .flex div{
     width: 33%;
-    margin: 10px 70px;
-    padding: 10px;
+    padding: 90px 0px;
 }
 
 .foot_left{
     background-repeat:repeat-y;
+    background-position:50%;
     background-image: url(./kadai1_image/foot.png);
-    background-size:29%;
-    width:100%;
-    height:400px;
+    background-size:19%;
+    height:200px;
+}
+
+.setumei{
+    font-size:20px;
 }
 
 .foot_right{
     background-repeat:repeat-y;
+    background-position:50%;
     background-image: url(./kadai1_image/foot.png);
-    background-size:29%;
+    background-size:19%;
+    height:200px;
+}
+
+.bottom{
+    background-color:#222327 ;
+    position:relative;
+    top:30px;
+    left:0px;
     width:100%;
-    height:400px;
+    height:50px;
+    color:#F5E5C9;
+    text-align: center;
+}
+
+.bottom p{
+    padding-top:5px;
 }
