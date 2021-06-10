@@ -85,3 +85,11 @@ const renderJson = (json) => {
   div.textContent = JSON.stringify(json, "", 2);
   document.getElementById('result').appendChild(div);
 }
+
+
+window.onload = function(){
+	$(function() {
+		$("#loading").fadeOut();
+		$("#container").fadeIn();
+	});
+}

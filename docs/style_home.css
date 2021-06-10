@@ -120,8 +120,9 @@ h2{
 
 .foot_left{
     background-repeat:repeat-y;
+    background-position: 50%;
     background-image: url(./kadai1_image/foot.png);
-    background-size:29%;
+    background-size:25%;
     width:100%;
     height:auto;
     text-align: left;
@@ -130,8 +131,9 @@ h2{
 
 .foot_right{
     background-repeat: repeat-y;
+    background-position: 50%;
     background-image: url(./kadai1_image/foot.png);
-    background-size:29%;
+    background-size:25%;
     width:100%;
     height:auto;
     text-align: right;
@@ -150,3 +152,4 @@ h2{
     text-align: center;
     color: #F5E5C9;
 }
+
