@@ -83,7 +83,7 @@ body {
     width: 66%;
     height: 400px;
     margin-right: 10px;
-    background-image: url(./kadai1_image/Mphotos/m10image.jpg);
+    background-image: url(./kadai1_image/m10image.jpg);
     counter-increment: gallery-cell;
   }
 
