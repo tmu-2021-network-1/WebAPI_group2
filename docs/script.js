@@ -30,6 +30,8 @@ const search = async ({artistOrCulture = false} = {}) => {
     list.appendChild(item);
   }
 
+   
+
   let i = 0;
   for (let id of ids) {
     const objectUri = `${objectsUri}/${id}`;
@@ -58,22 +60,6 @@ const search = async ({artistOrCulture = false} = {}) => {
 
   // renderJson(objectJson);
   return false;
-}
-
-
-  const topImageOnLoad = function displayString_createElement(){
-
-  var item2 = document.createElement('div class = topImage');
-  item2.setAttribute("src", img2);
-
-  var today = new Date();
-  var thisMonth = new String(today.getMonth() + "月");
-  const uri2 = `${searchUri}?hasImages=true&q=${encodeURIComponent(thisMonth)}&artistOrCulture=${artistOrCulture}`;
-  const json2 = await getData(uri2);
-
-  var selectnum = Math.floor(Math.random()*json2['total']);
-  const img2 = document.querySelectorAll(`.object img`)[selectnum];
-
 }
 
 const getData = async (uri) => {
