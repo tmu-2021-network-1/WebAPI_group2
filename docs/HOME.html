@@ -3,103 +3,60 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style_home.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="hhttps://unpkg.com/flickity@2/dist/flickity.css">
+    <script src="script_home.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <title>network_group2</title>
   </head>
 
   <body>
-    <body>
-        <section id="offer"> 
-          <a href="search.html"><img src="./kadai1_image/検索アイコン1.png" alt="検索"></a>
-          <h1>The Metropolitan Museum Of Art</h1>
-          <p>~ Welcome To The Museum Tour ~</p>
-          <div class="slide">
-            <img src=“Mphotos/m1image.jpg” />
-                  <img src=“Mphotos/m2image.jpg” />
-                  <img src=“Mphotos/m3image.jpg” />
-                  <img src=“Mphotos/m4image.jpg” />
-                  <img src=“Mphotos/m5image.jpg” />
-                  <img src=“Mphotos/m6image.jpg” />
-                  <img src=“Mphotos/m7image.jpg” />
-                  <img src=“Mphotos/m8image.jpg” />
-                  <img src=“Mphotos/m9image.jpg” />
-                  <img src=“Mphotos/m10image.jpg” />
-                  <img src=“Mphotos/m11image.jpg” />
-                  <img src=“Mphotos/m12image.jpg” />
-            </div>
-                  
-          <input type="range" id="slide_speed" value="2000" min=“100” max="10000">
-          
-          <style>
-          .slide {
-            position:relative;
-            height:400px;
-          }
-          .slide img {
-            position:absolute;
-            opacity:0;
-            transition:all 1s ease-in-out;
-            height:100%;
-            object-fit:contain;
-          }
-          </style>
-          
-          <script>
-          window.addEventListener('load', function () {
-            viewSlide('.slide img');
-          });
-          function viewSlide(className, slideNo = -1)
-          {
-            let imgArray = document.querySelectorAll(className);
-            if (slideNo >= 0) {
-                  imgArray[slideNo].style.opacity = 0;
-            }
-            slideNo++;
-            if (slideNo >= imgArray.length) {
-              slideNo = 0; 	}
-            imgArray[slideNo].style.opacity = 1;
-            let msec = document.getElementById('slide_speed').value;
-            setTimeout(function(){viewSlide(className, slideNo);}, msec);
-          }
-          </script>
-          <hr class="line"/>
-          <ul>
-            <li>HOME</li>
-            <li>ABOUT</li>
-            <li>WORKS</li>
-            <li>SEARCH</li>
-          </ul>
-        </section>
+    <section id="offer"> 
+      <a href="search.html"><img src="./kadai1_image/検索アイコン1.png" alt="検索"></a>
+      <h1>The Metropolitan Museum Of Art</h1>
+      <p>~ Welcome To The Museum Tour ~</p>
+      <hr class="line"/>
+      <div id="menu">
+        <li><a href="HOME.html">HOME</a>
+        <li><a href="about.html">ABOUT</a>
+        <li><a href="works.html">TOUR</a>
+        <li><a href="search.html">SEARCH</a>
+      </div>
+    </section>
 
-        <div class="top_image">
-            <p>後から画像差し込み</p>
+    <div class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+    
+
+    <div class="about">
+      <h2>ABOUT</h2>
+      <hr class="line_about"/>
+      <div class="flex">
+          <div class="foot_left"></div>
+          <div class="setumei"><p>
+            『The Metoropolitan Museum Of Art』にようこそ。
+          </p>
+        </br>
+          <p>こちらはオンラインで実際に美術館に訪れたような
+            体験が得られる、アート作品の閲覧サイトです。
+          </p>
+        </br>
+          <p>Metoropolitan美術館で展示されている作品が5つの
+            ジャンルで区分けされていて、メニューバーのDoorsをクリックすることで
+            閲覧しに行くことが出来ます。
+          </p>
+          <p>お目当ての作品があれば、右上の検索ボタンからお探しできます。</p>
         </div>
+          <div class="foot_right"></div>
+      </div>
 
-        <div class="about">
-            <h2>ABOUT</h2>
-            <hr class="line_about"/>
-            <div class="flex">
-                <div class="foot_left"></div>
-                <div class="setumei"><p>
-                  『The Metoropolitan Museum Of Art』にようこそ。
-                </p>
-              </br>
-                <p>こちらはオンラインで実際に美術館に訪れたような
-                  体験が得られる、アート作品の閲覧サイトです。
-                </p>
-              </br>
-                <p>Metoropolitan美術館で展示されている作品が5つの
-                  ジャンルで区分けされていて、メニューバーのDoorsをクリックすることで
-                  閲覧しに行くことが出来ます。
-                </p>
-                <p>お目当ての作品があれば、右上の検索ボタンからお探しでき
-                  ます。</p>
-              </div>
-                <div class="foot_right"></div>
-            </div>
-
-            <div class="bottom">
-              <p>group2</p>
-            </div>
-        </div>
+      <div class="bottom">
+        <p>Network1-group2</p>
+      </div>
+  </div>
   </body>
