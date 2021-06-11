@@ -23,56 +23,8 @@
         <li><a href="search.html">SEARCH</a>
       </div>
     </section>
-    <div class="slide">
-            <img src=“./kadai1_image/m1image.jpg” alt="one">
-            <img src=“./kadai1_image/m2image.jpg” alt="two">
-            <img src=“./kadai1_image/m3image.jpg” alt="three">
-            <img src=“./kadai1_image/m4image.jpg” alt="four">
-            <img src=“./kadai1_image/m5image.jpg” alt="five">
-            <img src=“./kadai1_image/m6image.jpg” alt="six">
-            <img src=“./kadai1_image/m7image.jpg” alt="seven">
-            <img src=“./kadai1_image/m8image.jpg” alt="eight">
-            <img src=“./kadai1_image/m9image.jpg” alt="nine">
-            <img src=“./kadai1_image/m10image.jpg” alt="ten">
-            <img src=“./kadai1_image/m11image.jpg” alt="eleven">
-            <img src=“./kadai1_image/m12image.jpg” alt="twelve">
-           
-      </div>
-            
-    <input type="range" id="slide_speed" value="2000" min=“100” max="10000">
     
-    <style>
-    .slide {
-      position:relative;
-      height:400px;
-    }
-    .slide img {
-      position:absolute;
-      opacity:0;
-      transition:all 1s ease-in-out;
-      height:100%;
-      object-fit:contain;
-    }
-    </style>
-    
-    <script>
-    window.addEventListener('load', function () {
-      viewSlide('.slide img');
-    });
-    function viewSlide(className, slideNo = -1)
-    {
-      let imgArray = document.querySelectorAll(className);
-      if (slideNo >= 0) {
-            imgArray[slideNo].style.opacity = 0;
-      }
-      slideNo++;
-      if (slideNo >= imgArray.length) {
-        slideNo = 0; 	}
-      imgArray[slideNo].style.opacity = 1;
-      let msec = document.getElementById('slide_speed').value;
-      setTimeout(function(){viewSlide(className, slideNo);}, msec);
-    }
-    </script>
+    <img src=“./kadai1_image/m1image.jpg” alt="one">
 
     <div class="gallery js-flickity"
   data-flickity-options='{ "wrapAround": true }'>
